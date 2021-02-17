@@ -1,4 +1,4 @@
-let playerTurn = true;
+let playerTurn = false;
 const cells = document.querySelectorAll('.board > div');
 const playerName = document.getElementsByClassName('player-name')[0];
 const playerSymbol = document.getElementsByClassName('player-symbol-container')[0];
@@ -26,34 +26,46 @@ const handleRestart = () => {
             item = item.fill(-1);
         });
         console.log(squares);
+        playerTurn = false;
+        handlePlayerSymbol(playerTurn);
         modalMessage.textContent = "Game Over";
         modalNotification.classList.toggle('show');
     });
 }
 
+const handlePlayerSymbol = playerTurn => {
+    if(playerTurn){
+        playerName.textContent = 'Player-2';
+        playerSymbol.children[0].className = 'player-symbol fas fa-times red';
+    }
+    else{
+        playerName.textContent = 'Player-1';
+        playerSymbol.children[0].className = 'player-symbol far fa-circle green';
+    }
+}
+
 const handleBoard = () => {
-    playerName.textContent = 'Player-1';
-    playerSymbol.children[0].className = 'player-symbol far fa-circle green';
+    // playerName.textContent = 'Player-1';
+    // playerSymbol.children[0].className = 'player-symbol far fa-circle green';
+    handlePlayerSymbol(playerTurn);
+
     cells.forEach((item, index) => {
         item.addEventListener('click', () => {
             if(!item.className.includes('far fa-circle') && !item.className.includes('fas fa-times')){
-                if(playerTurn){
-                    playerName.textContent = 'Player-2';
-                    playerSymbol.children[0].className = 'player-symbol fas fa-times red';                    
-                    item.className = item.className.replace('' ,'far fa-circle ');
-                    item.style.color = 'rgb(0, 255, 0)';
-                }
-                else{
-                    playerName.textContent = 'Player-1';
-                    playerSymbol.children[0].className = 'player-symbol far fa-circle green';
+                if(playerTurn){ 
                     item.className = item.className.replace('', 'fas fa-times ');
                     item.style.color = 'rgb(255, 0, 0)';
+                }
+                else{
+                    item.className = item.className.replace('' ,'far fa-circle ');
+                    item.style.color = 'rgb(0, 255, 0)';
                 }
                 console.log(Math.floor(index / 3));
                 console.log(index % 3);
                 squares[Math.floor(index / 3)][index % 3] = playerTurn ? 0 : 1;
                 checkOver(index);
                 playerTurn = !playerTurn;
+                handlePlayerSymbol(playerTurn);
                 console.log(squares);
             }
         });
@@ -112,7 +124,7 @@ const checkWinner = (index) => {
         if(_playerSymbol === squares[tempRow][tempCol]) ++count;
         else break;
     }
-    if(count === 3) _playerSymbol;
+    if(count === 3) return _playerSymbol;
     count = 1;
     tempCol = col;
     tempRow = row;
