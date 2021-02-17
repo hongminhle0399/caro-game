@@ -26,6 +26,7 @@ const handleRestart = () => {
             item = item.fill(-1);
         });
         console.log(squares);
+        playerTurn = true;
         modalMessage.textContent = "Game Over";
         modalNotification.classList.toggle('show');
     });
