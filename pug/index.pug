@@ -1,0 +1,27 @@
+doctype html
+head
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    meta(http-equiv="Content-Type", content="text/html;charset=UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet", href="../css/base.css")
+    link(rel="stylesheet", href="../css/fonts.css")
+    link(rel="stylesheet", href="../css/fontawesome-free-5.15.2-web/css/fontawesome.css")
+    link(rel="stylesheet", href="../css/fontawesome-free-5.15.2-web/css/regular.css")
+    link(rel="stylesheet", href="../css/fontawesome-free-5.15.2-web/css/solid.css")
+    title Caro Game
+body
+    main.main-section
+        h2.game-title CARO GAME
+        div(class="play-area d-flex")
+            include game-board
+            .player-turn-wrapper
+                div(class="player-turn d-flex")
+                    p.player-name Player Name
+                    div(class="player-symbol-container d-flex")
+                        span
+    div(class="modal-container d-flex")
+        div(class="modal-content d-flex") 
+            p.modal-message Game over
+            .modal-button-restart START AGAIN
+            //- div(class="modal-button-close fas fa-times-circle")
+    script(src="../js/GameHandler.js") 

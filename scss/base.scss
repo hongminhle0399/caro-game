@@ -1,0 +1,206 @@
+$primary-color: rgb(37, 31, 88);
+$square-border-color: #fff;
+$symbol-border-color: rgb(255, 0, 0);
+$player-turn-border-radius: 5px;
+$squares-index:
+    1 "1/2" "1/2",
+    2 "2/3" "1/2",
+    3 "3/4" "1/2",
+    4 "1/2" "2/3",
+    5 "2/3" "2/3",
+    6 "3/4" "2/3",
+    7 "1/2" "3/4",
+    8 "2/3" "3/4",
+    9 "3/4" "3/4";
+
+@mixin generateSquare($index, $column-index, $row-index) {
+    $class-name: #{".sq" + $index};
+    @if $index == 1{
+        #{$class-name} {
+            border: 1px solid $square-border-color;
+            grid-column: unquote($column-index);
+            grid-row: unquote($row-index);
+        }
+    }
+    @else if $index < 4{
+        #{$class-name} {
+            border: 1px solid $square-border-color;
+            grid-column: unquote($column-index);
+            grid-row: unquote($row-index);
+            margin-left: -1px;
+        }
+    }
+    @else if $index == 4 or $index == 7{
+        #{$class-name} {
+            border: 1px solid $square-border-color;
+            grid-column: unquote($column-index);
+            grid-row: unquote($row-index);
+            margin-top: -1px;
+        }
+    }
+    @else {
+        #{$class-name} {
+            border: 1px solid $square-border-color;
+            grid-column: unquote($column-index);
+            grid-row: unquote($row-index);
+            margin-top: -1px;
+            margin-left: -1px;
+        }
+    }
+}
+
+@mixin flexCenter {
+    justify-content: center;
+    align-items: center;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.d-flex {
+    display: flex;
+}
+
+body {
+    font-size: 16px;
+    background-color: $primary-color;
+}
+
+html {
+    line-height: 1.5;
+    font-family: Roboto;
+}
+
+.main-section {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    min-width: 600px;
+    margin: 0 auto;
+
+    .game-title {
+        text-align: center;
+        font-size: 32px;
+        font-family: "ReggaeOne-Regular";
+        font-weight: 400;
+        padding-top: 20px;
+        padding-bottom: 60px;
+        color: white;
+    }
+}
+
+.play-area {
+    justify-content: center;
+}
+
+.player-turn-wrapper {
+    flex: 0 0 200px;
+    border-radius: $player-turn-border-radius;
+    padding: 15px;
+    padding-top: 0px;
+    margin-right: -200px;
+}
+
+.player-turn{
+    align-items: center;
+    flex-direction: column;
+
+    .player-symbol-container {
+        width: 60px;
+        height: 60px;
+        @include flexCenter();
+        font-size: 15px;
+
+        .player-symbol {
+            font-size: 32px;
+        }
+    }
+}
+
+.red{
+    color:rgb(255, 0, 0);
+}
+
+.green{
+    color:rgb(0, 255, 0);
+}
+
+.player-name {
+    padding-bottom: 15px;
+    text-align: center;
+    color: white;
+}
+
+.player-name,
+.player-symbol {
+    margin: 0 auto;
+}
+
+.game-board {
+    flex: 0 1 auto;
+
+    .board {
+        display: grid;
+        grid-template-columns: repeat(3, 100px);
+        grid-template-rows: repeat(3, 100px);
+        background-color: $primary-color;
+    }
+}
+
+.board > div {
+    display: flex;
+    @include flexCenter();
+    color: #fff;
+    font-size: 24px;
+}
+
+.modal-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    @include flexCenter();
+    display: none;
+}
+
+.show{
+    display: flex;
+}
+
+.modal-content{
+    width: 300px;
+    height: 200px;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 15px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    box-shadow: inset 5px 5px 40px 5px rgba(#000, .5);
+    position: relative;
+    
+    .modal-button-restart{
+        background-color: #fff;
+        border: 1px solid $primary-color;
+        padding: 10px;
+        width: 50%;
+        border-radius: 8px;
+        margin: 0 auto;
+        text-align: center;
+        cursor: pointer;
+
+        &:hover{
+            background-color: $primary-color;
+            color: #fff;
+        }
+    }
+}
+
+@each $index, $row, $col in $squares-index {
+    @include generateSquare($index, $row, $col);
+}

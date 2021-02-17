@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/fonts.css">
+  <link rel="stylesheet" href="../css/fontawesome-free-5.15.2-web/css/fontawesome.css">
+  <link rel="stylesheet" href="../css/fontawesome-free-5.15.2-web/css/regular.css">
+  <link rel="stylesheet" href="../css/fontawesome-free-5.15.2-web/css/solid.css">
+  <title>Caro Game</title>
+</head>
+<body>
+  <main class="main-section">
+    <h2 class="game-title">CARO GAME</h2>
+    <div class="play-area d-flex">
+      <div class="game-board">
+        <div class="board">
+          <div class="sq1"></div>
+          <div class="sq2"></div>
+          <div class="sq3"></div>
+          <div class="sq4"></div>
+          <div class="sq5"></div>
+          <div class="sq6"></div>
+          <div class="sq7"></div>
+          <div class="sq8"></div>
+          <div class="sq9"></div>
+        </div>
+      </div>
+      <div class="player-turn-wrapper">
+        <div class="player-turn d-flex">
+          <p class="player-name">Player Name</p>
+          <div class="player-symbol-container d-flex"><span></span></div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div class="modal-container d-flex">
+    <div class="modal-content d-flex"> 
+      <p class="modal-message">Game over</p>
+      <div class="modal-button-restart">START AGAIN</div>
+    </div>
+  </div>
+  <script src="../js/GameHandler.js"> </script>
+</body>

@@ -1,0 +1,293 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.d-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body {
+  font-size: 16px;
+  background-color: #251f58;
+}
+
+html {
+  line-height: 1.5;
+  font-family: Roboto;
+}
+
+.main-section {
+  width: 100%;
+  height: auto;
+  padding: 15px;
+  min-width: 600px;
+  margin: 0 auto;
+}
+
+.main-section .game-title {
+  text-align: center;
+  font-size: 32px;
+  font-family: "ReggaeOne-Regular";
+  font-weight: 400;
+  padding-top: 20px;
+  padding-bottom: 60px;
+  color: white;
+}
+
+.play-area {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.player-turn-wrapper {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 200px;
+          flex: 0 0 200px;
+  border-radius: 5px;
+  padding: 15px;
+  padding-top: 0px;
+  margin-right: -200px;
+}
+
+.player-turn {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.player-turn .player-symbol-container {
+  width: 60px;
+  height: 60px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 15px;
+}
+
+.player-turn .player-symbol-container .player-symbol {
+  font-size: 32px;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: lime;
+}
+
+.player-name {
+  padding-bottom: 15px;
+  text-align: center;
+  color: white;
+}
+
+.player-name,
+.player-symbol {
+  margin: 0 auto;
+}
+
+.game-board {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
+}
+
+.game-board .board {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (100px)[3];
+      grid-template-columns: repeat(3, 100px);
+  -ms-grid-rows: (100px)[3];
+      grid-template-rows: repeat(3, 100px);
+  background-color: #251f58;
+}
+
+.board > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #fff;
+  font-size: 24px;
+}
+
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: none;
+}
+
+.show {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.modal-content {
+  width: 300px;
+  height: 200px;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 15px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-shadow: inset 5px 5px 40px 5px rgba(0, 0, 0, 0.5);
+          box-shadow: inset 5px 5px 40px 5px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.modal-content .modal-button-restart {
+  background-color: #fff;
+  border: 1px solid #251f58;
+  padding: 10px;
+  width: 50%;
+  border-radius: 8px;
+  margin: 0 auto;
+  text-align: center;
+  cursor: pointer;
+}
+
+.modal-content .modal-button-restart:hover {
+  background-color: #251f58;
+  color: #fff;
+}
+
+.sq1 {
+  border: 1px solid #fff;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+}
+
+.sq2 {
+  border: 1px solid #fff;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+  margin-left: -1px;
+}
+
+.sq3 {
+  border: 1px solid #fff;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3/4;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+  margin-left: -1px;
+}
+
+.sq4 {
+  border: 1px solid #fff;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  margin-top: -1px;
+}
+
+.sq5 {
+  border: 1px solid #fff;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  margin-top: -1px;
+  margin-left: -1px;
+}
+
+.sq6 {
+  border: 1px solid #fff;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3/4;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  margin-top: -1px;
+  margin-left: -1px;
+}
+
+.sq7 {
+  border: 1px solid #fff;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  grid-row: 3/4;
+  margin-top: -1px;
+}
+
+.sq8 {
+  border: 1px solid #fff;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  grid-row: 3/4;
+  margin-top: -1px;
+  margin-left: -1px;
+}
+
+.sq9 {
+  border: 1px solid #fff;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3/4;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  grid-row: 3/4;
+  margin-top: -1px;
+  margin-left: -1px;
+}
+/*# sourceMappingURL=base.css.map */
