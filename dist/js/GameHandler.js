@@ -62,7 +62,7 @@ const handleBoard = () => {
                 }
                 console.log(Math.floor(index / 3));
                 console.log(index % 3);
-                squares[Math.floor(index / 3)][index % 3] = playerTurn ? 0 : 1;
+                squares[Math.floor(index / 3)][index % 3] = !playerTurn ? 0 : 1;
                 checkOver(index);
                 playerTurn = !playerTurn;
                 handlePlayerSymbol(playerTurn);
