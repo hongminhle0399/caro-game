@@ -13,6 +13,12 @@ $squares-index:
     8 "2/3" "3/4",
     9 "3/4" "3/4";
 
+@mixin keyframes($name){
+    @keyframes #{$name} {
+        @content
+    }
+}
+
 @mixin generateSquare($index, $column-index, $row-index) {
     $class-name: #{".sq" + $index};
     @if $index == 1{
@@ -183,6 +189,20 @@ html {
     justify-content: space-evenly;
     box-shadow: inset 5px 5px 40px 5px rgba(#000, .5);
     position: relative;
+    animation: slide-left 2s ease;
+    animation-delay: 1s;
+
+    @include animationLeftSlide(slide-left){
+        0%{
+            margin-left: -100%;
+        }
+        50%{
+            margin-left: -50%;
+        }
+        100%{
+            margin-left: 0%;
+        }
+    }
     
     .modal-button-restart{
         background-color: #fff;

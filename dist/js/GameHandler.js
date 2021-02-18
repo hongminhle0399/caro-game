@@ -1,3 +1,5 @@
+const BOARD_SIZE = 50;
+
 let playerTurn = false;
 const cells = document.querySelectorAll('.board > div');
 const playerName = document.getElementsByClassName('player-name')[0];
