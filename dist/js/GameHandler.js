@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 const BOARD_SIZE = 50;
 
+=======
+>>>>>>> 5b753ac47f11a0b24a9a2226dbf3c94afb6b2ae1
 let playerTurn = false;
 const cells = document.querySelectorAll('.board > div');
 const playerName = document.getElementsByClassName('player-name')[0];
@@ -172,4 +175,8 @@ const checkOver = (index) => {
             console.log('value is false');
             break;
     }
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> 5b753ac47f11a0b24a9a2226dbf3c94afb6b2ae1
